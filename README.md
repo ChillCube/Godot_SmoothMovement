@@ -31,4 +31,12 @@ func _ready() -> void:
 > [!IMPORTANT]
 > Make sure to not use any of the position values, such as ```global_position``` or ```position```, as this will conflict with SmoothMovement. Instead, always refer to ```mover.global_target_position``` when changing the position of the object.
 
-
+Property,Type,Default,Description
+speed,float,20.0,Movement intensity. Affects both linear interpolation and bounce acceleration.
+bounce,bool,true,"When enabled, uses physics-based velocity and damping for a springy effect."
+damping,float,50.0,Only used if bounce is true. Higher values reduce oscillation/overshoot faster.
+rotation_on,bool,true,Enables automatic tilting based on the horizontal velocity of the node.
+rotation_strength,float,2.0,Multiplier for the tilt angle relative to horizontal movement speed.
+max_rotation,float,1.5,Clamps the rotation to prevent the node from tilting too far.
+sprite_rotation,bool,false,"If true, applies rotation to sprite_node instead of the parent node."
+sprite_node,Node2D,null,The specific node to rotate if sprite_rotation is enabled.
