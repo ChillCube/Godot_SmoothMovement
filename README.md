@@ -50,4 +50,6 @@ Run this in the root of your godot project:
 git rm -f addons/SmoothMovement
 rm -rf .git/modules/addons/SmoothMovement
 git config --remove-section submodule.addons/SmoothMovement
+# Try to remove the directory; if it's not empty, it will simply fail with an error
+rmdir addons 2>/dev/null || echo "Directory 'addons' is not empty, skipping removal."
 ```
