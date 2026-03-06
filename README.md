@@ -18,3 +18,10 @@ git submodule update --init --recursive --remote
 > git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
 > git submodule update --init --recursive --remote addons/SmoothMovement
 > ```
+
+## Usage
+To add the smooth movement to a 2D node, either drag and drop the scene into it as a child, or add this inside the ready function:
+```gdscript
+func _ready() -> void:
+    var mover = SmoothMovement.init(self)
+```
