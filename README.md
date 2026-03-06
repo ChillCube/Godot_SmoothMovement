@@ -8,7 +8,7 @@ To add this to your project, use the following commands:
 ```bash
 git init && \
 git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
-git submodule update --init --recursive
+git submodule update --init --recursive --remote
 ```
 
 > [!IMPORTANT]
