@@ -47,8 +47,8 @@ func _ready() -> void:
 ## Deinstallation
 Run this in the root of your godot project:
 ```bash
-git rm -f addons/SmoothMovement
-rm -rf .git/modules/addons/SmoothMovement
-git config --remove-section submodule.addons/SmoothMovement
+git rm -f addons/SmoothMovement \
+rm -rf .git/modules/addons/SmoothMovement \
+git config --remove-section submodule.addons/SmoothMovement \
 rmdir addons 2>/dev/null
 ```
