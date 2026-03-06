@@ -31,7 +31,7 @@ func _ready() -> void:
 > [!IMPORTANT]
 > Make sure to not use any of the position values, such as ```global_position``` or ```position```, as this will conflict with SmoothMovement. Instead, always refer to ```mover.global_target_position``` when changing the position of the object.
 
-### ⚙️ Configuration Parameters
+### Configuration Parameters
 
 | Property | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
