@@ -11,8 +11,10 @@ git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.
 git submodule update --init --recursive --remote
 ```
 
-> [!IMPORTANT]
-> After running the command, go to Project > Project Settings > Plugins and change the status of "Smooth Movement" to Enabled.
-
 > [!WARNING]
 > If you use submodules in your project, and don't want these to update to the latest version, remove the last line.
+> In that case, run this instead:
+> ```bash
+> git init && \
+> git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
+> git submodule update --init --recursive --remote addons/SmoothMovement```
