@@ -24,6 +24,11 @@ var global_target_rotation : float
 
 var position_modifiers : Array[Vector2]; ## This will modify the global_target_position. This can be useful when adding temporary changes to an objects default position. 
 
+static func init(parent: Node) -> SmoothMovement:
+	var new_mover = SmoothMovement.new()
+	parent.add_child(new_node)
+	return new_mover
+
 func modify_position(pos : Vector2) -> int: ## modifies the global position and returns the ID of the modification, which can be used to later delete the modification
 	position_modifiers.append(pos)
 	return position_modifiers.size() - 1
