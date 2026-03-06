@@ -12,8 +12,7 @@ git submodule update --init --recursive --remote
 ```
 
 > [!WARNING]
-> If you use submodules in your project, and don't want these to update to the latest version, remove the last line.
-> In that case, run this instead:
+> If you use submodules in your project, and don't want these to update to the latest version, run this instead:
 > ```bash
 > git init && \
 > git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
