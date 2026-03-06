@@ -25,3 +25,8 @@ To add the smooth movement to a 2D node, either drag and drop the scene into it 
 func _ready() -> void:
     var mover = SmoothMovement.init(self)
 ```
+
+> [!IMPORTANT]
+> Make sure to not use any of the position values, such as ```global_position``` or ```position```, as this will conflict with SmoothMovement. Instead, always refer to ```mover.global_target_position``` when changing the position of the object.
+
+
