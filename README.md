@@ -20,10 +20,12 @@ git submodule update --init --recursive --remote
 > ```
 
 ## Usage
-To add the smooth movement to a 2D node, either drag and drop the scene into it as a child, or add this inside the ready function:
+To add the smooth movement to a 2D node, either drag and drop the scene into it as a child, or add this to your script:
 ```gdscript
+var mover : SmoothMovement;
+
 func _ready() -> void:
-    var mover = SmoothMovement.init(self)
+    mover = SmoothMovement.init(self)
 ```
 
 > [!IMPORTANT]
