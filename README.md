@@ -7,7 +7,7 @@ The movement will then be handled by the SmoothMovement node.
 To add this to your project, use the following commands:
 ```bash
 git init && \
-git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
+git submodule add https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
 git submodule update --init --recursive --remote
 ```
 
@@ -15,7 +15,7 @@ git submodule update --init --recursive --remote
 > If you use submodules in your project, and don't want these to update to the latest version, run this instead:
 > ```bash
 > git init && \
-> git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
+> git submodule add https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
 > git submodule update --init --recursive --remote addons/SmoothMovement
 > ```
 
