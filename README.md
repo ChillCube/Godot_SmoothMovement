@@ -4,7 +4,15 @@ This project adds a new node called "SmoothMovement", which is attached to the n
 The movement will then be handled by the SmoothMovement node. 
 
 ## Installation
-Simply run this command inside your project:
+To add this to your project, use the following commands:
 ```bash
-git clone  ChillCube/Godot_SmoothMovement .
+git init && \
+git submodule add --recursive https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
+git submodule update --init --recursive
 ```
+
+> [!IMPORTANT]
+> After running the command, go to Project > Project Settings > Plugins and change the status of "Smooth Movement" to Enabled.
+
+> [!WARNING]
+> If you use submodules in your project, and don't want these to update to the latest version, remove the last line.
