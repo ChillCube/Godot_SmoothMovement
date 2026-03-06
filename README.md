@@ -43,3 +43,11 @@ func _ready() -> void:
 | **`max_rotation`** | `float` | `1.5` | Clamps the tilt angle (in radians). |
 | **`sprite_rotation`** | `bool` | `false` | If true, only rotates the `sprite_node` instead of the parent. |
 | **`sprite_node`** | `Node2D` | `null` | The specific node to rotate if `sprite_rotation` is enabled. |
+
+## Deinstallation
+Run this in the root of your godot project:
+```bash
+git rm -f addons/SmoothMovement
+rm -rf .git/modules/addons/SmoothMovement
+git config --remove-section submodule.addons/SmoothMovement
+```
