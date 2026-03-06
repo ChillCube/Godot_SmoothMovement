@@ -6,5 +6,5 @@ The movement will then be handled by the SmoothMovement node.
 ## Installation
 Simply run this command inside your project:
 ```bash
-git clone  ChillCube/Godot_SmoothMovement
+git clone  ChillCube/Godot_SmoothMovement .
 ```
