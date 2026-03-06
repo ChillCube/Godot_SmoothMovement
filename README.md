@@ -45,6 +45,7 @@ func _ready() -> void:
 | **`sprite_node`** | `Node2D` | `null` | The specific node to rotate if `sprite_rotation` is enabled. |
 
 ## Deinstallation
+### Linux
 Run this in the root of your godot project:
 ```bash
 git rm -f addons/SmoothMovement \
