@@ -16,6 +16,7 @@ if [ ! -f "project.godot" ]; then
     echo "Warning: No project.godot found. Ensure you are in your project root."
 fi
 mkdir -p addons
+git clone https://github.com/ChillCube/Godot_SmoothMovement
 if [ -f "DEPENDENCIES" ]; then
     while read -r url || [ -n "$url" ]; do
         # Skip comments and empty lines
