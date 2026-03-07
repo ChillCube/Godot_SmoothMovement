@@ -19,7 +19,6 @@ mkdir -p addons
 git clone https://github.com/ChillCube/Godot_SmoothMovement
 if [ -f "DEPENDENCIES" ]; then
     while read -r url || [ -n "$url" ]; do
-        # Skip comments and empty lines
         [[ "$url" =~ ^#.* ]] || [ -z "$url" ] && continue
         repo_name=$(basename "$url" .git)
         if [ ! -d "addons/$repo_name" ]; then
