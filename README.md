@@ -4,26 +4,13 @@ This project adds a new node called "SmoothMovement", which is attached to the n
 The movement will then be handled by the SmoothMovement node. 
 
 ## Installation
+
+Make sure to download the ChillCube Developer tools to use this addon: https://github.com/ChillCube/ChillCube-Developer-Tools.git
+
 ### Linux
 To add this to your project, copy paste these commands into terminal at the root of your project:
 ```bash
-read -p "Enter the name of your main addon folder: " addon_name; \
-if [ -f "addons/$addon_name/DEPENDENCIES.txt" ]; then \
-    git init && mkdir -p addons && \
-    while read -r repo || [ -n "$repo" ]; do \
-        [[ -z "$repo" || "$repo" =~ ^# ]] && continue; \
-        repo_name=$(basename "$repo" .git); \
-        target_dir="addons/$repo_name"; \
-        if [ ! -d "$target_dir" ]; then \
-            echo "Cloning $repo_name..."; \
-            git clone --depth 1 "$repo" "$target_dir"; \
-        else \
-            echo "Skipping: $target_dir already exists."; \
-        fi \
-    done < "addons/$addon_name/DEPENDENCIES.txt"; \
-else \
-    echo "Error: Could not find addons/$addon_name/DEPENDENCIES.txt"; \
-fi
+clone-gd-addon https://github.com/ChillCube/Godot_SmoothMovement.git
 ```
 
 ## Usage
