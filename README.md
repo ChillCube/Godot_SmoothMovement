@@ -7,17 +7,9 @@ The movement will then be handled by the SmoothMovement node.
 To add this to your project, use the following commands:
 ```bash
 git init && \
-git submodule add https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
-git submodule update --init --recursive --remote
+mkdir -p addons && \
+git clone https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement
 ```
-
-> [!WARNING]
-> If you use submodules in your project, and don't want these to update to the latest version, run this instead:
-> ```bash
-> git init && \
-> git submodule add https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement && \
-> git submodule update --init --recursive --remote addons/SmoothMovement
-> ```
 
 ## Usage
 To add the smooth movement to a 2D node, either drag and drop the scene into it as a child, or add this to your script:
