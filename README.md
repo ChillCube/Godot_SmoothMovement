@@ -7,18 +7,32 @@ The movement will then be handled by the SmoothMovement node.
 ### Linux
 To add this to your project, copy paste these commands into terminal at the root of your project:
 ```bash
-git init && \
-mkdir -p addons && \
-git clone https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement
-while read -r url || [ -n "$url" ]; do \
-    [[ "$url" =~ ^#.* ]] || [ -z "$url" ] && continue; \
-    repo_name=$(basename "$url" .git); \
-    if [ ! -d "addons/$repo_name" ]; then \
-        git clone --depth 1 "$url" "addons/$repo_name"; \
-    else \
-        echo "$repo_name already exists, skipping..."; \
-    fi \
-done < DEPENDENCIES
+#!/bin/bash
+if [ ! -d ".git" ]; then
+    git init
+    echo "Initialized new Git repository."
+fi
+if [ ! -f "project.godot" ]; then
+    echo "Warning: No project.godot found. Ensure you are in your project root."
+fi
+mkdir -p addons
+if [ -f "DEPENDENCIES" ]; then
+    while read -r url || [ -n "$url" ]; do
+        # Skip comments and empty lines
+        [[ "$url" =~ ^#.* ]] || [ -z "$url" ] && continue
+        repo_name=$(basename "$url" .git)
+        if [ ! -d "addons/$repo_name" ]; then
+            echo "Installing $repo_name..."
+            git clone --depth 1 "$url" "addons/$repo_name"
+        else
+            echo "Skipping $repo_name (already exists)."
+        fi
+    done < DEPENDENCIES
+else
+    echo "Error: DEPENDENCIES file not found!"
+    exit 1
+fi
+echo "All tools synced successfully."
 ```
 
 ## Usage
