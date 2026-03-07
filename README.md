@@ -12,6 +12,8 @@ To add this to your project, copy paste these commands into terminal at the root
 ```bash
 clone-gd-addon https://github.com/ChillCube/Godot_SmoothMovement.git
 ```
+> [!IMPORTANT]
+> Make sure to enable the addon in the project settings!
 
 ## Usage
 To add the smooth movement to a 2D node, either drag and drop the scene into it as a child, or add this to your script:
