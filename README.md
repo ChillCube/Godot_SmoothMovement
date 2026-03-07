@@ -42,9 +42,7 @@ func _ready() -> void:
 ### Linux
 Run this in the root of your godot project:
 ```bash
-git rm -f addons/SmoothMovement && \
-rm -rf .git/modules/addons/SmoothMovement && \
-rmdir addons 2>/dev/null
+remove-gd-addon Godot_SmoothMovement
 ```
 
 ## For Developers
