@@ -6,9 +6,10 @@ The movement will then be handled by the SmoothMovement node.
 ## Installation
 To add this to your project, use the following commands:
 ```bash
-git init && \
-mkdir -p addons && \
-git clone https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement
+git init && mkdir -p addons && \
+for repo in "Godot_SmoothMovement" "Godot_InventorySystem" "Godot_Console"; do \
+    git clone --depth 1 https://github.com/ChillCube/$repo.git addons/$repo; \
+done
 ```
 
 ## Usage
