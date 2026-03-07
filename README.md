@@ -4,12 +4,21 @@ This project adds a new node called "SmoothMovement", which is attached to the n
 The movement will then be handled by the SmoothMovement node. 
 
 ## Installation
-To add this to your project, use the following commands:
+### Linux
+To add this to your project, copy paste these commands into terminal at the root of your project:
 ```bash
-git init && mkdir -p addons && \
-for repo in "Godot_SmoothMovement" "Godot_InventorySystem" "Godot_Console"; do \
-    git clone --depth 1 https://github.com/ChillCube/$repo.git addons/$repo; \
-done
+git init && \
+mkdir -p addons && \
+git clone https://github.com/ChillCube/Godot_SmoothMovement.git addons/SmoothMovement
+while read -r url || [ -n "$url" ]; do \
+    [[ "$url" =~ ^#.* ]] || [ -z "$url" ] && continue; \
+    repo_name=$(basename "$url" .git); \
+    if [ ! -d "addons/$repo_name" ]; then \
+        git clone --depth 1 "$url" "addons/$repo_name"; \
+    else \
+        echo "$repo_name already exists, skipping..."; \
+    fi \
+done < DEPENDENCIES
 ```
 
 ## Usage
