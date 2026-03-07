@@ -7,32 +7,23 @@ The movement will then be handled by the SmoothMovement node.
 ### Linux
 To add this to your project, copy paste these commands into terminal at the root of your project:
 ```bash
-#!/bin/bash
-if [ ! -d ".git" ]; then
-    git init
-    echo "Initialized new Git repository."
+read -p "Enter the name of your main addon folder: " addon_name; \
+if [ -f "addons/$addon_name/DEPENDENCIES.txt" ]; then \
+    git init && mkdir -p addons && \
+    while read -r repo || [ -n "$repo" ]; do \
+        [[ -z "$repo" || "$repo" =~ ^# ]] && continue; \
+        repo_name=$(basename "$repo" .git); \
+        target_dir="addons/$repo_name"; \
+        if [ ! -d "$target_dir" ]; then \
+            echo "Cloning $repo_name..."; \
+            git clone --depth 1 "$repo" "$target_dir"; \
+        else \
+            echo "Skipping: $target_dir already exists."; \
+        fi \
+    done < "addons/$addon_name/DEPENDENCIES.txt"; \
+else \
+    echo "Error: Could not find addons/$addon_name/DEPENDENCIES.txt"; \
 fi
-if [ ! -f "project.godot" ]; then
-    echo "Warning: No project.godot found. Ensure you are in your project root."
-fi
-mkdir -p addons
-git clone https://github.com/ChillCube/Godot_SmoothMovement
-if [ -f "DEPENDENCIES" ]; then
-    while read -r url || [ -n "$url" ]; do
-        [[ "$url" =~ ^#.* ]] || [ -z "$url" ] && continue
-        repo_name=$(basename "$url" .git)
-        if [ ! -d "addons/$repo_name" ]; then
-            echo "Installing $repo_name..."
-            git clone --depth 1 "$url" "addons/$repo_name"
-        else
-            echo "Skipping $repo_name (already exists)."
-        fi
-    done < DEPENDENCIES
-else
-    echo "Error: DEPENDENCIES file not found!"
-    exit 1
-fi
-echo "All tools synced successfully."
 ```
 
 ## Usage
