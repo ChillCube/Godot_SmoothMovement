@@ -1,5 +1,5 @@
 # Godot_SmoothMovement API Reference
-Generated on: Sun Mar  8 03:21:03 AM CET 2026
+Generated on: Sun Mar  8 03:27:52 AM CET 2026
 
 ## Description
 SmoothMovement
@@ -26,12 +26,12 @@ Seperates rotation to the sprite, rather than the parent node
 
 Sprite, used for rotation when dragging
 
-### modify_position(
+### modify_position(`1` pos)
 **Returns:** `1`
 
 modifies the global position and returns the ID of the modification, which can be used to later delete the modification
 
-### remove_position_modification_by_id(
+### remove_position_modification_by_id(`1` index)
 **Returns:** `1`
 
 removes a modification of the global position through its id
