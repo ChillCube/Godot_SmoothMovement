@@ -26,7 +26,7 @@ var position_modifiers : Array[Vector2]; ## This will modify the global_target_p
 
 static func init(parent: Node) -> SmoothMovement:
 	var new_mover = SmoothMovement.new();
-	parent.add_child(new_node);
+	parent.add_child(new_mover);
 	new_mover.global_target_position = parent.global_position;
 	return new_mover;
 
