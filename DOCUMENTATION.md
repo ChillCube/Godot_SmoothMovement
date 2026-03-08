@@ -1,5 +1,5 @@
-# Godot_SmoothMovement API Reference
-Generated on: Sun Mar  8 03:45:53 AM CET 2026
+#  API Reference
+Generated on: Sun Mar  8 03:49:41 AM CET 2026
 
 ---
 
