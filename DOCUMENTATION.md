@@ -1,57 +1,34 @@
 # Godot_SmoothMovement API Reference
-Generated on: Sun Mar  8 03:34:11 AM CET 2026
+Generated on: Sun Mar  8 03:35:22 AM CET 2026
 
 ---
 
-SmoothMovement
+## SmoothMovement
 
 **Inherits:** 
 
 Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
 
-     - Name
+Property Index
 
-     - Default value
+Method Index
 
-     - SmoothMovement_rotation_on
-
-     - ``true``
-
-     - SmoothMovement_sprite_rotation
-
-     - ``false``
-
-     - SmoothMovement_sprite_node
-
-     - ````
-
-     - SmoothMovement_position_modifiers
-
-     - ````
-
-     - Signature
-
-     - SmoothMovement_remove_position_modification_by_id(int index)
-
-Property Descriptions
-
-bool rotation_on = ``true``
+bool rotation_on = true
 
 Disable or enable rotation (Note: Only the sprite is rotated)
 
-bool sprite_rotation = ``false``
+bool sprite_rotation = false
 
 Seperates rotation to the sprite, rather than the parent node
 
-Node2D sprite_node
+### sprite_node
+**Type:** Node2D
 
 Sprite, used for rotation when dragging
 
 Vector2[] position_modifiers
 
 This will modify the global_target_position. This can be useful when adding temporary changes to an objects default position.
-
-Method Descriptions
 
 int modify_position(Vector2 pos)
 
