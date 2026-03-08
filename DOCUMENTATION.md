@@ -1,70 +1,65 @@
 # Godot_SmoothMovement API Reference
-Generated on: Sun Mar  8 03:16:17 AM CET 2026
+Generated on: Sun Mar  8 03:18:15 AM CET 2026
+
+## Description
+**Inherits:** 
+
+Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
+
+     - Name
+
+     - Default value
+
+     - `1`
+
+     - ``true``
+
+     - `1`
+
+     - ``false``
+
+     - `1`
+
+     - ````
+
+     - `1`
+
+     - ````
+
+     - Signature
+
+     - `1`(`1` pos)* - `1`
+
+     - `1`(`1` index)
+
+
+---
 
 ### rotation_on
-**Type:** bool
+**Type:** 1
 **Default:** `true`
 
 Disable or enable rotation (Note: Only the sprite is rotated)
 
-.. _SmoothMovement_sprite_rotation:
-
 ### sprite_rotation
-**Type:** bool
+**Type:** 1
 **Default:** `false`
 
 Seperates rotation to the sprite, rather than the parent node
 
-.. _SmoothMovement_sprite_node:
-
 ### sprite_node
-**Type:** Node2D
+**Type:** 1
 
 Sprite, used for rotation when dragging
 
-.. _SmoothMovement_position_modifiers:
-
-### modify_position(`Vector2` pos)
-**Returns:** int
+### modify_position(`1` pos)
+**Returns:** 1
 
 modifies the global position and returns the ID of the modification, which can be used to later delete the modification
 
-.. _SmoothMovement_remove_position_modification_by_id:
-
-### remove_position_modification_by_id(`int` index)
-**Returns:** void
+### remove_position_modification_by_id(`1` index)
+**Returns:** 1
 
 removes a modification of the global position through its id
 
-## Description
-.. _SmoothMovement:
-SmoothMovement
-**Inherits:** 
-Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
-.. list-table::
-   :header-rows: 1
-   * - Type
-     - Name
-     - Default value
-   * - `bool`
-     - `rotation_on`
-     - ``true``
-   * - `bool`
-     - `sprite_rotation`
-     - ``false``
-   * - `Node2D`
-     - `sprite_node`
-     - ````
-   * - `Vector2`[]
-     - `position_modifiers`
-     - ````
-.. list-table::
-   :header-rows: 1
-   * - Return type
-     - Signature
-   * - `int`
-     - `modify_position`(`Vector2` pos)* - `void`
-     - `remove_position_modification_by_id`(`int` index)
-
----
 
