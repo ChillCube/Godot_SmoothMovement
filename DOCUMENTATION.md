@@ -1,5 +1,5 @@
 # Godot_SmoothMovement API Reference
-Generated on: Sun Mar  8 03:37:06 AM CET 2026
+Generated on: Sun Mar  8 03:39:20 AM CET 2026
 
 ---
 
@@ -7,6 +7,9 @@ Generated on: Sun Mar  8 03:37:06 AM CET 2026
 
 Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
 
+   
+
+## Properties
 ### rotation_on
 **Type:** bool
 **Default:** true
@@ -28,6 +31,7 @@ Vector2[] position_modifiers
 
 This will modify the global_target_position. This can be useful when adding temporary changes to an objects default position.
 
+## Methods
 ### modify_position(Vector2 pos)
 **Returns:** int
 
