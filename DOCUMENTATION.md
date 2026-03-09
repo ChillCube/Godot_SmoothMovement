@@ -11,9 +11,9 @@ Use this node to enable smooth movement on a node. To do this, attach the node t
 ### Properties
 | Property | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
-| **bounce** | `bool` | `true` | If set to true, will change the movement calculation to allow for "bouncy" movement. |
+| **bounce** | `bool` | `true;` | If set to true, will change the movement calculation to allow for "bouncy" movement. |
 | **damping** | `float` | `50.0` | used to adjust the bouncy movement if enabled. |
-| **rotation_on** | `bool` | `true` | Disable or enable rotation (Note: Only the sprite is rotated) |
+| **rotation_on** | `bool` | `true;` | Disable or enable rotation (Note: Only the sprite is rotated) |
 | **rotation_strength** | `float` | `2` | If rotation is enabled, how much it should rotate. |
 | **max_rotation** | `float` | `1.5` | Seperates rotation to the sprite, rather than the parent node |
 | **sprite_node** | `Node2D` | `-` | Sprite, used for rotation when dragging |
