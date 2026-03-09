@@ -1,6 +1,6 @@
-# 
+# Godot_SmoothMovement
 
-
+Godot Addon
 
 ## Installation
 
@@ -9,19 +9,19 @@ Make sure to download the ChillCube Developer tools to use this addon: https://g
 ### Linux
 To add this to your project, copy paste these commands into terminal at the root of your project:
 ```bash
-clone-gd-addon https://github.com/ChillCube/.git
+clone-gd-addon https://github.com/ChillCube/Godot_SmoothMovement.git
 ```
 > [!IMPORTANT]
 > Make sure to enable the addon, including its dependencies in the project settings!
 
 ## Documentation
-You can find the documentation at: https://github.com/ChillCube//blob/main/DOCUMENTATION.md
+You can find the documentation at: https://github.com/ChillCube/Godot_SmoothMovement/blob/main/DOCUMENTATION.md
 
 ## Deinstallation
 ### Linux
 Run this in the root of your godot project:
 ```bash
-remove-gd-addon 
+remove-gd-addon Godot_SmoothMovement
 ```
 
 ## For Developers
