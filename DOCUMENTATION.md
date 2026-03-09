@@ -17,7 +17,7 @@ Use this node to enable smooth movement on a node. To do this, attach the node t
 | **rotation_strength** | `float` | `2` | If rotation is enabled, how much it should rotate. |
 | **max_rotation** | `float` | `1.5` | Seperates rotation to the sprite, rather than the parent node |
 | **sprite_node** | `Node2D` | `-` | Sprite, used for rotation when dragging |
-| **position_modifiers** | `Array[Vector2]` | `-` | This will modify the global_target_position. This can be useful when adding temporary changes to an objects default position. |
+| **position_modifiers** | `Array[Vector2]` | `[...]` | This will modify the global_target_position. This can be useful when adding temporary changes to an objects default position. |
 
 ### Methods
 | Method | Returns | Description |
