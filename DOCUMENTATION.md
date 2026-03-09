@@ -1,11 +1,14 @@
 # Godot_SmoothMovement API Reference
 Generated on: 2026-03-09
 
-Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
+Godot Addon
 
 ---
 
-## Properties
+## Class: SmoothMovement
+Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
+
+### Properties
 | Property | Type | Default | Description |
 | :--- | :--- | :--- | :--- |
 | **bounce** | `bool` | `true` | If set to true, will change the movement calculation to allow for "bouncy" movement. |
@@ -16,9 +19,10 @@ Use this node to enable smooth movement on a node. To do this, attach the node t
 | **sprite_node** | `Node2D` | `-` | Sprite, used for rotation when dragging |
 | **position_modifiers** | `Array[Vector2]` | `-` | This will modify the global_target_position. This can be useful when adding temporary changes to an objects default position. |
 
-## Methods
+### Methods
 | Method | Returns | Description |
 | :--- | :--- | :--- |
 | **modify_position()** | `int` | modifies the global position and returns the ID of the modification, which can be used to later delete the modification |
 | **remove_position_modification_by_id()** | `void` | removes a modification of the global position through its id |
 
+---
