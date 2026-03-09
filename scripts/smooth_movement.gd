@@ -7,7 +7,7 @@ class_name SmoothMovement
 @export_group("bouncing")
 @export var bounce : bool = true; ## If set to true, will change the movement calculation to allow for "bouncy" movement.
 var velocity = Vector2.ZERO
-@export var damping = 50.0 ## used to adjust the bouncy movement if enabled.
+@export var damping : float = 50.0 ## used to adjust the bouncy movement if enabled.
 
 @export_group("Rotation")
 @export var rotation_on : bool = true; ## Disable or enable rotation (Note: Only the sprite is rotated)
