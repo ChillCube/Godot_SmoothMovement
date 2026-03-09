@@ -1,7 +1,14 @@
-#  API Reference
-Generated: 2026-03-09
+# Godot_SmoothMovement API Reference
+Generated on: 2026-03-09
 
+Godot Addon
 
+### 📦 Dependencies
+| Addon | Repository |
+| :--- | :--- |
+| Godot_SmoothMovement | [Link](https://github.com/ChillCube/Godot_SmoothMovement) |
+
+---
 
 ## Class: SmoothMovement
 **Inherits:** [`Node`](https://docs.godotengine.org/en/stable/classes/class_node.html)
