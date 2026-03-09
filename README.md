@@ -1,6 +1,6 @@
 # Godot_SmoothMovement
 
-A Godot Addon
+Godot Addon
 
 ## Installation
 
