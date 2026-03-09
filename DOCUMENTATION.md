@@ -1,7 +1,7 @@
 # Godot_SmoothMovement API Reference
-Generated on: Mon Mar  9 01:22:38 PM CET 2026
+Generated on: 2026-03-09
 
-Godot Addon
+Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
 
 ---
 
