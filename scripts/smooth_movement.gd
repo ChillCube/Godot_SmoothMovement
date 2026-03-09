@@ -5,19 +5,16 @@ class_name SmoothMovement
 @export var speed = 20;
 
 @export_group("bouncing")
-@export var bounce : bool = true;
+@export var bounce : bool = true; ## If set to true, will change the movement calculation to allow for "bouncy" movement.
 var velocity = Vector2.ZERO
-@export var damping = 50.0
+@export var damping = 50.0 ## used to adjust the bouncy movement if enabled.
 
 @export_group("Rotation")
-## Disable or enable rotation (Note: Only the sprite is rotated)
-@export var rotation_on : bool = true;
-@export var rotation_strength : float = 2
-@export var max_rotation : float = 1.5
-## Seperates rotation to the sprite, rather than the parent node
+@export var rotation_on : bool = true; ## Disable or enable rotation (Note: Only the sprite is rotated)
+@export var rotation_strength : float = 2 ## If rotation is enabled, how much it should rotate. 
+@export var max_rotation : float = 1.5 ## Seperates rotation to the sprite, rather than the parent node
 @export var sprite_rotation : bool = false
-## Sprite, used for rotation when dragging
-@export var sprite_node : Node2D
+@export var sprite_node : Node2D ## Sprite, used for rotation when dragging
 
 var global_target_position : Vector2
 var global_target_rotation : float
