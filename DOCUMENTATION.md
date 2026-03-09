@@ -3,13 +3,6 @@ Generated: 2026-03-09
 
 
 
-### 📦 Dependencies
-| Addon | Repository |
-| :--- | :--- |
-| Godot_SmoothMovement | [GitHub](https://github.com/ChillCube/Godot_SmoothMovement) |
-
----
-
 ## Class: SmoothMovement
 **Inherits:** [`Node`](https://docs.godotengine.org/en/stable/classes/class_node.html)
 
