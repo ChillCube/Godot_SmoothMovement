@@ -1,62 +1,108 @@
-## Use this node to enable smooth movement on a node. To do this, attach the node to another node as a child. This node contains a "global_target_position" variable that you will be using instead of the regular position.
 extends Node
 class_name SmoothMovement
 
-@export var speed = 20;
+@export var speed = 20.0
 
-@export_group("bouncing")
-@export var bounce : bool = true; ## If set to true, will change the movement calculation to allow for "bouncy" movement.
+@export_group("Bouncing")
+@export var bounce : bool = false
 var velocity = Vector2.ZERO
-@export var damping : float = 50.0 ## used to adjust the bouncy movement if enabled.
+@export var damping : float = 500.0
 
 @export_group("Rotation")
-@export var rotation_on : bool = true; ## Disable or enable rotation (Note: Only the sprite is rotated)
-@export var rotation_strength : float = 2 ## If rotation is enabled, how much it should rotate. 
-@export var max_rotation : float = 1.5 ## Seperates rotation to the sprite, rather than the parent node
+@export var rotation_on : bool = true
+@export var tilt_on : bool = true
+@export_range(0.0, 10.0, 0.1) var tilt_strength : float = 1.0
+@export_range(0.0, 3.14, 0.01) var max_tilt : float = 0.4
 @export var sprite_rotation : bool = false
-@export var sprite_node : Node2D ## Sprite, used for rotation when dragging
+@export var sprite_node : Node2D
 
+@export_group("Scale")
+@export var scale_on : bool = true
+
+var procedural_tilt : float = 0.0
 var global_target_position : Vector2
 var global_target_rotation : float
-
-var position_modifiers : Array[Vector2]; ## This will modify the global_target_position. This can be useful when adding temporary changes to an objects default position. 
+var global_target_scale : Vector2 # Added for size tracking
+var position_modifiers : Array[Vector2]
 
 static func init(parent: Node) -> SmoothMovement:
-	var new_mover = SmoothMovement.new();
-	parent.add_child(new_mover);
-	new_mover.global_target_position = parent.global_position;
-	return new_mover;
+	var new_mover = SmoothMovement.new()
+	# It is safer to add the child first so it enters the tree properly
+	parent.add_child(new_mover)
+	
+	new_mover.global_target_position = parent.global_position
+	new_mover.global_target_rotation = parent.global_rotation
+	
+	# Use a default or the current scale
+	if "scale" in parent:
+		new_mover.global_target_scale = parent.scale
+	else:
+		new_mover.global_target_scale = Vector2.ONE
+		
+	return new_mover
 
-func modify_position(pos : Vector2) -> int: ## modifies the global position and returns the ID of the modification, which can be used to later delete the modification
+func modify_position(pos : Vector2) -> int:
 	position_modifiers.append(pos)
 	return position_modifiers.size() - 1
 
-func remove_position_modification_by_id(index : int): ## removes a modification of the global position through its id
+func remove_position_modification_by_id(index : int):
 	position_modifiers.remove_at(index)
 
 func _process(delta: float) -> void:
-	var change = global_target_position + _get_total_modifier() - get_parent().global_position
-	if rotation_on:
-		_rotate_to_movement(delta)
+	_calculate_tilt(delta)
+	
+	var target_pos = global_target_position + _get_total_modifier()
+	
 	if bounce:
-		_bounce(delta, global_target_position + _get_total_modifier(), global_target_rotation)
+		_bounce(delta, target_pos)
 	else:
-		_move(delta, global_target_position + _get_total_modifier(), global_target_rotation)
+		_move(delta, target_pos)
+	
+	_apply_scale(delta) # Added scale application to the loop
 
-func _bounce(delta: float, target_pos, target_rot) -> void:
-	var acceleration = (target_pos - get_parent().global_position) * speed * 3
+func _calculate_tilt(delta: float) -> void:
+	if not tilt_on:
+		procedural_tilt = lerp_angle(procedural_tilt, 0.0, delta * speed)
+		return
+
+	var parent = get_parent()
+	var displacement_x = (global_target_position.x - parent.global_position.x)
+	var horizontal_vel = velocity.x if bounce else displacement_x * speed
+	
+	var desired_tilt = clamp(horizontal_vel * 0.002 * tilt_strength, -max_tilt, max_tilt)
+	procedural_tilt = lerp_angle(procedural_tilt, desired_tilt, delta * speed)
+
+func _bounce(delta: float, target_pos: Vector2) -> void:
+	var parent = get_parent()
+	var acceleration = (target_pos - parent.global_position) * speed * 3
 	velocity += acceleration * delta
 	velocity *= pow(damping, -delta)
-	get_parent().global_position += velocity * delta
-	get_parent().global_rotation = lerp_angle(get_parent().global_rotation, target_rot, delta * 5.0)
+	parent.global_position += velocity * delta
+	_apply_rotations(delta)
 
-func _move(delta: float, target_pos, target_rot) -> void:
-	get_parent().global_rotation += (target_rot - get_parent().global_rotation) * speed * delta
-	get_parent().global_position += (target_pos - get_parent().global_position) * speed * delta
+func _move(delta: float, target_pos: Vector2) -> void:
+	var parent = get_parent()
+	parent.global_position = parent.global_position.lerp(target_pos, delta * speed)
+	_apply_rotations(delta)
 
-func _rotate_to_movement(delta) -> void:
-		var change : Vector2 = (global_target_position - get_parent().global_position) * delta
-		global_target_rotation = max(-max_rotation, min(max_rotation, change.x * rotation_strength));
+func _apply_rotations(delta: float) -> void:
+	var parent = get_parent()
+	
+	if sprite_rotation and sprite_node:
+		if rotation_on:
+			parent.global_rotation = lerp_angle(parent.global_rotation, global_target_rotation, delta * speed)
+		sprite_node.rotation = lerp_angle(sprite_node.rotation, procedural_tilt, delta * speed)
+	else:
+		var base_rot = global_target_rotation if rotation_on else parent.global_rotation
+		var final_rot = base_rot + procedural_tilt
+		parent.global_rotation = lerp_angle(parent.global_rotation, final_rot, delta * speed)
+
+func _apply_scale(delta: float) -> void:
+	if not scale_on: return
+	var parent = get_parent()
+	if parent and "scale" in parent:
+		# Use move_toward or a robust lerp
+		parent.scale = parent.scale.lerp(global_target_scale, clamp(delta * speed, 0.0, 1.0))
 
 func _get_total_modifier() -> Vector2:
 	var total_modification : Vector2 = Vector2.ZERO
