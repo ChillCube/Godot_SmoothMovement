@@ -1,6 +1,6 @@
 # Godot_SmoothMovement
 
-Godot Addon
+A godot addon that enables smooth movement on a node using a global_target_position variable
 
 ## Installation
 
@@ -11,8 +11,6 @@ To add this to your project, copy paste these commands into terminal at the root
 ```bash
 clone-gd-addon https://github.com/ChillCube/Godot_SmoothMovement.git
 ```
-> [!IMPORTANT]
-> Make sure to enable the addon, including its dependencies in the project settings!
 
 ## Documentation
 You can find the documentation at: https://github.com/ChillCube/Godot_SmoothMovement/blob/main/DOCUMENTATION.md
@@ -32,3 +30,14 @@ push-all-addons
 ```
 
 
+
+## Used By
+7 other ChillCube addon(s) depend on this:
+
+- [2dCard](https://github.com/ChillCube/2dCard)
+- [2D_Node_Arranger](https://github.com/ChillCube/2d_node_arranger)
+- [Card Hand](https://github.com/ChillCube/Card_Hand)
+- [Godot_2D_Mouse_Dragging](https://github.com/ChillCube/Godot_2D_Mouse_Dragging)
+- [Godot_SmoothMovement](https://github.com/ChillCube/Godot_SmoothMovement)
+- [Godot_SpriteBasedSmoothMenuButton2D](https://github.com/ChillCube/Godot_SpriteBasedSmoothMenuButton2D)
+- [heart_popup](https://github.com/ChillCube/heart_popup)

@@ -1,3 +1,4 @@
+@icon("res://addons/Godot_SmoothMovement/icon_animation.png")
 extends Node
 class_name SmoothMovement
 
