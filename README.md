@@ -32,13 +32,12 @@ push-all-addons
 
 
 ## Used By
-8 other ChillCube addon(s) depend on this:
+7 other ChillCube addon(s) depend on this:
 
 - [2dCard](https://github.com/ChillCube/2dCard)
 - [2D_Node_Arranger](https://github.com/ChillCube/2d_node_arranger)
 - [Card Hand](https://github.com/ChillCube/Card_Hand)
 - [Godot_2D_Mouse_Dragging](https://github.com/ChillCube/Godot_2D_Mouse_Dragging)
 - [Godot_SmoothMovement](https://github.com/ChillCube/Godot_SmoothMovement)
-- [Godot_SpriteBasedSmoothMenuButton2D](https://github.com/ChillCube/Godot_SpriteBasedSmoothMenuButton2D)
 - [heart_popup](https://github.com/ChillCube/heart_popup)
 - [SmoothUI](https://github.com/ChillCube/SmoothUI)
