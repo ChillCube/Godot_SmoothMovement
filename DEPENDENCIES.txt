@@ -1,5 +1,0 @@
-# --- Automated Dependencies (Managed by Script) ---
-https://github.com/ChillCube/Godot_SmoothMovement
-
-# --- Manual Dependencies (Do Not Delete) ---
-# Updated: 2026-05-15
