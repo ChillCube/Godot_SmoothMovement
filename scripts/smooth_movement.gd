@@ -108,7 +108,7 @@ func _apply_rotations(delta: float) -> void:
 			parent.global_rotation = lerp_angle(parent.global_rotation, global_target_rotation, delta * speed)
 		sprite_node.rotation = lerp_angle(sprite_node.rotation, procedural_tilt, delta * speed)
 	else:
-		var base_rot = global_target_rotation if rotation_on else parent.global_rotation
+		var base_rot = global_target_rotation
 		var final_rot = base_rot + procedural_tilt
 		parent.global_rotation = lerp_angle(parent.global_rotation, final_rot, delta * speed)
 
