@@ -20,11 +20,16 @@ var velocity = Vector2.ZERO
 @export_group("Scale")
 @export var scale_on : bool = true ## Animate parent scale toward global_target_scale each frame
 
+signal reached_target(position: Vector2) ## Emitted once when the parent arrives within 2 px of the target position
+signal movement_started ## Emitted once when the parent begins moving away from the target
+
 var procedural_tilt : float = 0.0
 var global_target_position : Vector2
 var global_target_rotation : float
 var global_target_scale : Vector2 # Added for size tracking
 var position_modifiers : Array[Vector2]
+
+var _prev_near_target: bool = true
 
 static func init(parent: Node) -> SmoothMovement: ## Factory: creates and adds a SmoothMovement child to parent, seeding targets from parent's current transform
 	var new_mover = SmoothMovement.new()
@@ -51,15 +56,24 @@ func remove_position_modification_by_id(index : int): ## Removes the position mo
 
 func _process(delta: float) -> void:
 	_calculate_tilt(delta)
-	
+
 	var target_pos = global_target_position + _get_total_modifier()
-	
+
 	if bounce:
 		_bounce(delta, target_pos)
 	else:
 		_move(delta, target_pos)
-	
+
 	_apply_scale(delta) # Added scale application to the loop
+
+	var parent = get_parent()
+	if parent and "global_position" in parent:
+		var near = parent.global_position.distance_to(target_pos) < 2.0
+		if not near and _prev_near_target:
+			movement_started.emit()
+		elif near and not _prev_near_target:
+			reached_target.emit(parent.global_position)
+		_prev_near_target = near
 
 func _calculate_tilt(delta: float) -> void:
 	if not tilt_on:

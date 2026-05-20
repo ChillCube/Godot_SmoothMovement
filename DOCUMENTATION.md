@@ -21,6 +21,12 @@ A godot addon that enables smooth movement on a node using a global_target_posit
 | **sprite_node** | `Node2D` | `-` | Sprite to tilt separately when sprite_rotation is enabled |
 | **scale_on** | `bool` | `true` | Animate parent scale toward global_target_scale each frame |
 
+### 🔔 Signals
+| Signal | Arguments | Description |
+| :--- | :--- | :--- |
+| **reached_target** | `position: Vector2` |  Emitted once when the parent arrives within 2 px of the target position |
+| **movement_started** | - |  Emitted once when the parent begins moving away from the target |
+
 ### 🛠️ Methods
 | Method | Arguments | Returns | Description |
 | :--- | :--- | :--- | :--- |
