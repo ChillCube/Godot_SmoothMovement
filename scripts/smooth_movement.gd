@@ -2,23 +2,23 @@
 extends Node
 class_name SmoothMovement
 
-@export var speed = 20.0
+@export var speed = 20.0 ## Lerp / spring speed; higher = snappier movement
 
 @export_group("Bouncing")
-@export var bounce : bool = false
+@export var bounce : bool = false ## Use spring physics instead of lerp for elastic overshoot
 var velocity = Vector2.ZERO
-@export var damping : float = 500.0
+@export var damping : float = 500.0 ## Spring damping; higher = less oscillation
 
 @export_group("Rotation")
-@export var rotation_on : bool = true
-@export var tilt_on : bool = true
-@export_range(0.0, 10.0, 0.1) var tilt_strength : float = 1.0
-@export_range(0.0, 3.14, 0.01) var max_tilt : float = 0.4
-@export var sprite_rotation : bool = false
-@export var sprite_node : Node2D
+@export var rotation_on : bool = true ## Allow the mover to animate the parent's rotation toward global_target_rotation
+@export var tilt_on : bool = true ## Add a procedural tilt based on horizontal movement
+@export_range(0.0, 10.0, 0.1) var tilt_strength : float = 1.0 ## How strongly horizontal velocity affects the tilt angle
+@export_range(0.0, 3.14, 0.01) var max_tilt : float = 0.4 ## Maximum tilt angle in radians
+@export var sprite_rotation : bool = false ## Route procedural tilt to a separate sprite_node instead of the parent
+@export var sprite_node : Node2D ## Sprite to tilt separately when sprite_rotation is enabled
 
 @export_group("Scale")
-@export var scale_on : bool = true
+@export var scale_on : bool = true ## Animate parent scale toward global_target_scale each frame
 
 var procedural_tilt : float = 0.0
 var global_target_position : Vector2
@@ -26,7 +26,7 @@ var global_target_rotation : float
 var global_target_scale : Vector2 # Added for size tracking
 var position_modifiers : Array[Vector2]
 
-static func init(parent: Node) -> SmoothMovement:
+static func init(parent: Node) -> SmoothMovement: ## Factory: creates and adds a SmoothMovement child to parent, seeding targets from parent's current transform
 	var new_mover = SmoothMovement.new()
 	# It is safer to add the child first so it enters the tree properly
 	parent.add_child(new_mover)
@@ -42,11 +42,11 @@ static func init(parent: Node) -> SmoothMovement:
 		
 	return new_mover
 
-func modify_position(pos : Vector2) -> int:
+func modify_position(pos : Vector2) -> int: ## Adds an additive position modifier and returns its index (use to remove it later)
 	position_modifiers.append(pos)
 	return position_modifiers.size() - 1
 
-func remove_position_modification_by_id(index : int):
+func remove_position_modification_by_id(index : int): ## Removes the position modifier at the given index returned by modify_position
 	position_modifiers.remove_at(index)
 
 func _process(delta: float) -> void:
