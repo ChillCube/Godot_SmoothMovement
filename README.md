@@ -4,36 +4,34 @@ A godot addon that enables smooth movement on a node using a global_target_posit
 
 ## Installation
 
-Make sure to download the ChillCube Developer tools: https://github.com/ChillCube/ChillCube-Developer-Tools.git
+Make sure to download the ChillCube Developer tools to use this addon: https://github.com/ChillCube/ChillCube-Developer-Tools.git
 
-### Using the Godot Plugin
-Enable the **ChillCube Tools** plugin, then paste the repo URL into the Clone tab.
-
-### Linux / CLI
+### Linux
+To add this to your project, copy paste these commands into terminal at the root of your project:
 ```bash
 clone-gd-addon https://github.com/ChillCube/Godot_SmoothMovement.git
 ```
 
 ## Documentation
-https://github.com/ChillCube/Godot_SmoothMovement/blob/main/DOCUMENTATION.md
+You can find the documentation at: https://github.com/ChillCube/Godot_SmoothMovement/blob/main/DOCUMENTATION.md
 
 ## Deinstallation
-Use the CC Tools panel in Godot, or run:
+### Linux
+Run this in the root of your godot project:
 ```bash
 remove-gd-addon Godot_SmoothMovement
 ```
 
 ## For Developers
+### Push Changes
+Run this at the root of your directory to push changes to any addons you have:
 ```bash
 push-all-addons
 ```
 
-## Used By
-6 other ChillCube addon(s) depend on this:
 
-- [Card Hand](https://github.com/ChillCube/Card_Hand)
-- [2D_Node_Arranger](https://github.com/ChillCube/2d_node_arranger)
-- [SmoothUI](https://github.com/ChillCube/SmoothUI)
-- [heart_popup](https://github.com/ChillCube/heart_popup)
-- [2dCard](https://github.com/ChillCube/2dCard)
-- [Godot_2D_Mouse_Dragging](https://github.com/ChillCube/Godot_2D_Mouse_Dragging)
+
+## Used By
+1 other ChillCube addon(s) depend on this:
+
+- [FollowingCamera2D](https://github.com/ChillCube/FollowingCamera2D)
