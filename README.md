@@ -27,9 +27,3 @@ remove-gd-addon Godot_SmoothMovement
 ```bash
 push-all-addons
 ```
-
-## Used By
-2 other ChillCube addon(s) depend on this:
-
-- [2D_Node_Arranger](https://github.com/ChillCube/2d_node_arranger)
-- [SmoothUI](https://github.com/ChillCube/SmoothUI)
