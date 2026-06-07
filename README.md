@@ -29,9 +29,6 @@ push-all-addons
 ```
 
 ## Used By
-4 other ChillCube addon(s) depend on this:
+1 other ChillCube addon(s) depend on this:
 
-- [Card Hand](https://github.com/ChillCube/Card_Hand)
 - [FollowingCamera2D](https://github.com/ChillCube/FollowingCamera2D)
-- [2dCard](https://github.com/ChillCube/2dCard)
-- [Godot_2D_Mouse_Dragging](https://github.com/ChillCube/Godot_2D_Mouse_Dragging)
