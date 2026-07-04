@@ -11,7 +11,7 @@ var velocity = Vector2.ZERO
 
 @export_group("Rotation")
 @export var rotation_on : bool = true ## Allow the mover to animate the parent's rotation toward global_target_rotation
-@export var tilt_on : bool = true ## Add a procedural tilt based on horizontal movement
+@export var tilt_on : bool = false ## Add a procedural tilt based on horizontal movement
 @export_range(0.0, 10.0, 0.1) var tilt_strength : float = 1.0 ## How strongly horizontal velocity affects the tilt angle
 @export_range(0.0, 3.14, 0.01) var max_tilt : float = 0.4 ## Maximum tilt angle in radians
 @export var sprite_rotation : bool = false ## Route procedural tilt to a separate sprite_node instead of the parent
