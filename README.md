@@ -32,6 +32,7 @@ push-all-addons
 
 
 ## Used By
-1 other ChillCube addon(s) depend on this:
+2 other ChillCube addon(s) depend on this:
 
-- [Godot_2D_Mouse_Dragging](https://github.com/ChillCube/Godot_2D_Mouse_Dragging)
+- [Godot_SpriteBasedSmoothMenuButton2D](https://github.com/ChillCube/Godot_SpriteBasedSmoothMenuButton2D)
+- [SmoothUI](https://github.com/ChillCube/SmoothUI)
